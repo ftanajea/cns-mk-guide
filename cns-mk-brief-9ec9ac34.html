@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运动知识探索 · mk体育</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fbe9e7 0%, #ffdbb5 40%, #fbd2b7 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .page-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+            width: 100%;
+        }
+
+        /* ---------- hero 区 ---------- */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 50px;
+            background: rgba(255, 244, 235, 0.65);
+            backdrop-filter: blur(3px);
+            border-radius: 64px 20px 64px 20px;
+            margin-bottom: 48px;
+            box-shadow: 0 12px 28px rgba(180, 100, 60, 0.12);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #b55a2b, #9a3f1a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 18px;
+        }
+        .hero p {
+            max-width: 640px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #4f2d1b;
+        }
+        .hero .tagline {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: #eac7b0;
+            border-radius: 60px;
+            font-weight: 500;
+            color: #3d2316;
+            font-size: 1.05rem;
+            box-shadow: 0 4px 10px rgba(170, 100, 60, 0.2);
+        }
+
+        /* ---------- 通用卡片 ---------- */
+        .card-section {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            margin-bottom: 48px;
+        }
+        .card {
+            background: #fffcf9;
+            padding: 32px 36px;
+            border-radius: 32px;
+            box-shadow: 0 8px 18px rgba(140, 80, 45, 0.08);
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 28px rgba(130, 70, 40, 0.12);
+        }
+        .card h2 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: #7c3f20;
+            margin-bottom: 16px;
+            border-left: 8px solid #e09f76;
+            padding-left: 18px;
+        }
+        .card h3 {
+            font-size: 1.3rem;
+            color: #8f4f2c;
+            margin: 20px 0 10px;
+        }
+        .card p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #3c2b1f;
+            margin-bottom: 12px;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 20px;
+            margin: 16px 0 8px;
+        }
+        .card li {
+            position: relative;
+            padding-left: 26px;
+            font-size: 1.02rem;
+            line-height: 1.6;
+            color: #2f1e13;
+        }
+        .card li::before {
+            content: "•";
+            position: absolute;
+            left: 6px;
+            color: #d98d5e;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        /* ---------- FAQ 摘要 ---------- */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin: 8px 0 4px;
+        }
+        .faq-item {
+            background: #f7ede4;
+            border-radius: 24px;
+            padding: 18px 22px;
+            transition: background 0.2s;
+        }
+        .faq-item:hover {
+            background: #efe1d4;
+        }
+        .faq-item strong {
+            display: block;
+            font-size: 1.05rem;
+            color: #753b1e;
+            margin-bottom: 6px;
+        }
+        .faq-item span {
+            color: #4c3324;
+            line-height: 1.5;
+            font-size: 0.97rem;
+        }
+
+        /* ---------- 底部链接 ---------- */
+        .footer-links {
+            background: rgba(245, 225, 208, 0.6);
+            border-radius: 48px 48px 24px 24px;
+            padding: 32px 28px;
+            text-align: center;
+            backdrop-filter: blur(4px);
+            margin-top: 16px;
+        }
+        .footer-links p {
+            font-size: 1.03rem;
+            color: #4d3021;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+        .footer-links a {
+            color: #9e502b;
+            text-decoration: none;
+            font-weight: 550;
+            background: #ece0d4;
+            padding: 4px 14px;
+            border-radius: 48px;
+            transition: all 0.2s;
+            display: inline-block;
+            margin: 0 6px;
+        }
+        .footer-links a:hover {
+            background: #dbb99b;
+            color: #2d170b;
+        }
+
+        .fine-print {
+            margin-top: 24px;
+            font-size: 0.85rem;
+            color: #735942;
+            opacity: 0.8;
+        }
+
+        /* ---------- 响应式 ---------- */
+        @media (max-width: 720px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .card {
+                padding: 24px 18px;
+            }
+            .card ul {
+                grid-template-columns: 1fr;
+            }
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            .page-wrapper {
+                padding: 20px 14px 40px;
+            }
+            .card h2 {
+                font-size: 1.4rem;
+                padding-left: 12px;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero {
+                padding: 40px 16px;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .hero .tagline {
+                font-size: 0.9rem;
+                padding: 8px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- hero 区 -->
+        <section class="hero">
+            <h1>从运动到洞察</h1>
+            <p>体育不仅是竞技，也是观察世界的一个窗口。当我们谈论训练方法、赛事节奏或运动生理时，背后往往藏着系统性的知识结构。<br><a href="https://cns-mk-sport.com" style="background:transparent; padding:0; margin:0; border-radius:0; font-weight:600; text-decoration:underline; text-underline-offset:4px;">mk体育</a> 正是这样一处围绕运动认知展开的内容平台。</p>
+            <div class="tagline">运动素养 · 技术拆解 · 体能逻辑</div>
+        </section>
+
+        <!-- 优势区 / 说明区 合并为卡片组 -->
+        <div class="card-section">
+            <div class="card">
+                <h2>为什么运动知识需要成体系？</h2>
+                <p>零散的热点资讯很难帮你建立真正的判断力。一项运动技术的改进、一个训练周期的安排，往往涉及生物力学、营养时机、恢复策略等多个维度。在 <a href="https://cns-mk-sport.com" style="background:transparent; padding:0; margin:0; border-radius:0; text-decoration:underline; text-underline-offset:3px;">mk体育</a>，内容更倾向于梳理这些底层逻辑，而非只停留在比分与集锦。</p>
+                <ul>
+                    <li>运动解剖与发力模式</li>
+                    <li>周期化训练原则</li>
+                    <li>常见损伤机制与预防</li>
+                    <li>运动营养基础框架</li>
+                </ul>
+                <p style="margin-top:8px;">这些主题相互支撑，适合教练、运动爱好者以及希望更深入了解体育科学的读者。</p>
+            </div>
+
+            <div class="card">
+                <h2>不止于“练”，也在于“知”</h2>
+                <p>很多人把运动简单等同于“出汗”或“拼意志”，但真正可持续的提升来自对身体的认知。比如：为什么同样一组深蹲，不同髋部角度刺激的肌群差异巨大？最大摄氧量与耐力表现之间如何量化？这些内容在 <a href="https://cns-mk-sport.com" style="background:transparent; padding:0; margin:0; border-radius:0; text-decoration:underline; text-underline-offset:3px;">mk体育</a> 的叙述中，会结合实例与数据，提供可理解的解释。</p>
+                <h3>适合哪些场景？</h3>
+                <p>无论是个人训练计划的制定，还是团队项目的技术复盘，具备知识框架的人更容易发现问题本质。平台内容也涵盖运动心理学、装备科技简史等交叉领域，帮助拓宽思考边界。</p>
+            </div>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="card" style="padding-bottom:28px;">
+            <h2>常见疑问摘要</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <strong>内容偏理论还是偏实践？</strong>
+                    <span>两者兼顾，理论用于解释原理，实践部分会给出可操作的参考方法，但不会替代个体化医疗或训练处方。</span>
+                </div>
+                <div class="faq-item">
+                    <strong>适合完全没有运动基础的人吗？</strong>
+                    <span>可以。许多文章从基本概念展开，用比喻和图示降低理解门槛。当然，有实际运动经验会更容易共鸣。</span>
+                </div>
+                <div class="faq-item">
+                    <strong>信息更新频率如何？</strong>
+                    <span>保持稳定的更新节奏，重点在于内容深度，而不是追逐短期热点。每一篇都经过一定整理与核实。</span>
+                </div>
+                <div class="faq-item">
+                    <strong>是否提供个性化建议？</strong>
+                    <span>平台属于知识分享，不针对个人出具训练或饮食方案。你可以通过学习原理自行调整，或咨询专业人士。</span>
+                </div>
+            </div>
+            <p style="margin-top:18px; font-size:0.98rem; color:#5a3d2b;">如果你对某个运动话题有持续兴趣，不妨持续关注 <a href="https://cns-mk-sport.com" style="background:transparent; padding:0; margin:0; border-radius:0; text-decoration:underline; text-underline-offset:3px;">mk体育</a> 的相关分类内容。</p>
+        </div>
+
+        <!-- 底部链接 -->
+        <div class="footer-links">
+            <p>从运动解剖到训练逻辑，从营养策略到心理调节，<a href="https://cns-mk-sport.com">mk体育</a> 尝试用相对系统的内容陪伴你的体育认知之旅。</p>
+            <p style="font-size:0.95rem; margin-top:12px;">所有内容仅供参考，不构成专业指导。运动前请根据自身情况评估风险。</p>
+            <div class="fine-print">
+                <span>© 探索运动知识 · 思辨 · 实践</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
